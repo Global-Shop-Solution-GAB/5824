@@ -1,0 +1,135 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AutoWOGenerationData
+</name>
+</assembly>
+<members>
+<member name="T:AutoWOGeneration.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AutoWOGeneration.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AutoWOGeneration.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:AutoWOGeneration.DataModel.ItemWrapperBase">
+ <summary>
+ This is the "Data" level of Automated WO Generation.
+ The purpose of this class is to take the base object, and extend it with additional properties that are either
+ calculated, loaded from another object, or created in some other way.
+ </summary>
+</member>
+<member name="E:AutoWOGeneration.DataModel.ItemWrapperBase.PropertyChanged">
+ <summary>
+ Raised when any potentially data-bound property is changed. This is important because it is what notifies
+ controls and grids that are bound to the objects to update their values.
+ </summary>
+</member>
+<member name="F:AutoWOGeneration.DataModel.ItemWrapperBase._context">
+ <summary>
+ IMPORTANT - This saves the application context from when the object is created.
+ This is used to make sure that PropertyChanged events are raised on the correct (Main)
+ thread, so that the controls can update correctly.
+ </summary>
+</member>
+<member name="M:AutoWOGeneration.DataModel.ItemWrapperBase.OnPropertyChangedContext(System.Object)">
+ <summary>
+ Handler for OnPropertyChanged post back to main thread.
+ </summary>
+ <param name="state"></param>
+</member>
+<member name="P:AutoWOGeneration.DataModel.ItemWrapperBase.DisplayRev">
+ <summary>
+ The part number revision that will be displayed in the grid based on long part company option
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AutoWOGeneration.DataModel.ItemWrappers.GridErrorVisibility">
+ <summary>
+ Returns true if there was a loading error. It is used to determine if the Grid Error UI is shown.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AutoWOGeneration.DataModel.ItemWrappers.Status">
+ <summary>
+ Returns the status of the GSSEO collection load.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AutoWOGeneration.DataModel.ItemWrappers.Parameters">
+ <summary>
+ These are the parameters provided to the GSSEO collection Load function. In most cases, it's 
+ bounding, like "starting and ending part", for example.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AutoWOGeneration.DataModel.ItemWrappers.LoadObjectCollectionThreadSafe(GSSEO.IGSSEOCollection@,System.Int32,System.Object[])">
+ <summary>
+ Loads a collection object. Uses a lock to ensure that GSSEO is only loading a single thing at a time.
+ It likes to break if you try to multi-thread it.
+ </summary>
+ <param name="obj"></param>
+ <param name="mode"></param>
+ <returns></returns>
+</member>
+<member name="T:AutoWOGeneration.DataModel.Collections.gssDictionary`2">
+ <summary>
+ This dictionary class adds ItemAdded, ItemRemoved, and CollectionModified events for whenever a pair is added or removed from the dictionary.
+ </summary>
+ <typeparam name="TKey">The pair's Key value</typeparam>
+ <typeparam name="TValue">The pair's Value</typeparam>
+ <remarks>Events are not triggered when values are modified, only add/remove.</remarks>
+</member>
+<member name="T:AutoWOGeneration.DataModel.Collections.gssConcurrentDictionary`2">
+ <summary>
+ This concurrent dictionary class adds ItemAdded, ItemRemoved, and CollectionModified events for whenever a pair is added or removed from the dictionary.
+ </summary>
+ <typeparam name="TKey">The pair's Key value</typeparam>
+ <typeparam name="TValue">The pair's Value</typeparam>
+ <remarks>Events are not triggered when values are modified, only add/remove</remarks>
+</member>
+<member name="T:AutoWOGeneration.DataModel.Collections.gssList`1">
+ <summary>
+ This list class adds ItemAdded, ItemRemoved, and CollectionModified events for whenever an item is added or removed from the list.
+ </summary>
+ <typeparam name="TValue"></typeparam>
+ <remarks>Events are not triggered when values are modified, only add/remove</remarks>
+</member>
+<member name="T:AutoWOGeneration.Registry.GSSRegistry">
+ <summary>
+ Reads and Saves Registry Values from the Menu.
+ </summary>
+ <remarks>
+ Written by Stephanie Castro.
+ Requires F_IPM in your project.
+ </remarks>
+</member>
+<member name="M:AutoWOGeneration.Registry.GSSRegistry.AddRegVal(System.String,System.String,System.String,System.Int64,System.Int64,System.Boolean,System.String,System.Boolean,System.Int64,System.Double,System.DateTime,System.DateTime)">
+ <summary>
+ Used to add registry values.
+ </summary>
+ <remarks>
+ Registry ID's are at the coders distrection. 
+ Key is user, company, program, regid, seq.
+ </remarks>
+</member>
+<member name="M:AutoWOGeneration.Registry.GSSRegistry.GetRegVal(System.String,System.String,System.String,System.Int64,System.Int64,AutoWOGeneration.Registry.GSSRegistry.RegistryValueType,System.Object)">
+ <summary>
+ Retrieves registry values.
+ </summary>
+ <returns>
+ Uses default value if none found or returns value based on type.
+  </returns>
+</member>
+</members>
+</doc>
